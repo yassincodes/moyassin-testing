@@ -10,11 +10,15 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* General Reset */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: "Roboto", sans-serif;
+ 
+  font-style: normal;
         }
 
         body {
@@ -36,7 +40,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             text-align: left;
-            border-left: 8px solid #ff6b6b;
+            border-left: 8px solid rgba(255, 105, 180, 0.973);
             transition: all 0.3s ease;
         }
 
@@ -61,7 +65,7 @@
             border-radius: 50%;
             object-fit: cover;
             aspect-ratio: 1 / 1;
-            border: 3px solid #ff6b6b;
+            border: 3px solid rgba(255, 105, 180, 0.973);
             transition: all 0.3s ease;
         }
 
@@ -84,20 +88,21 @@
         }
 
         .header-links a:hover {
-            color: #ff6b6b;
+            color: rgba(255, 105, 180, 0.973);
             background-color: #f4f7f9;
         }
 
         .work-with-me {
-            background-color: #ff6b6b;
+            background-color: rgba(255, 105, 180, 0.973);
             color: white !important;
             font-weight: bold;
+            
         }
 
         .work-with-me:hover {
-            background-color: #ff4757;
+            background-color: rgba(255, 105, 180, 0.973);
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.973);
         }
 
         header h1 {
@@ -108,23 +113,23 @@
         }
 
         header h1 span {
-            color: #ff6b6b;
+            color: rgba(255, 105, 180, 0.973);
         }
 
         .content p {
             margin-bottom: 20px;
-            font-size: 1.1rem;
+            font-size: 1.25rem;
         }
 
         .content a {
-            color: #ff6b6b;
+            color: rgba(255, 105, 180, 0.973);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .content a:hover {
-            color: #ff4757;
+            color: rgba(255, 105, 180, 0.973);
             text-decoration: underline;
         }
 
@@ -175,7 +180,7 @@
                     <a href="https://tiktok.com/@moyassin" target="_blank">TikTok</a>
                     <a href="https://www.goodreads.com/moyassin" target="_blank">Goodreads</a>
                     <a href="CV-link" target="_blank">CV</a>
-                    <a href="work.html" class="work-with-me">Work with me</a>
+                    <a href="work.html" class="work-with-me" style="border-radius: 40px;">Work with me</a>
                 </div>
             </div>
             <h1>👋 Hi! I'm <span>@moyassin</span>, a software developer with a background in teaching.</h1>
