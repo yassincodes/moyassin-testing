@@ -19,62 +19,78 @@
         }
         header {
             position: fixed;
-            top: 16px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            background-color: #2a2a2a;
+            background-color: rgba(255, 105, 180, 0.2);
+            backdrop-filter: blur(10px);
             border-radius: 9999px;
-            padding: 8px 16px;
+            padding: 12px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: calc(100% - 20px);
-            max-width: 800px;
+            width: calc(100% - 40px);
+            max-width: 900px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(255, 105, 180, 0.1);
         }
         .logo {
-            width: 24px;
-            height: 24px;
-            background-color: #ffffff;
+            width: 32px;
+            height: 32px;
+            background-color: #ff69b4;
             border-radius: 50%;
+            box-shadow: 0 0 10px #ff69b4;
         }
         nav {
             display: flex;
-            gap: 16px;
+            gap: 20px;
         }
         .nav-links {
             text-decoration: none;
-            color: #a0a0a0;
-            font-size: 14px;
-            transition: color 0.3s ease;
+            color: #ff9ed2;
+            font-size: 16px;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
         .nav-links:hover {
             color: #ffffff;
+            text-shadow: 0 0 5px #ff69b4;
         }
         .menu-icon {
             display: none;
             cursor: pointer;
         }
+        .menu-icon svg {
+            stroke: #ff69b4;
+            width: 28px;
+            height: 28px;
+        }
 
         @media (max-width: 768px) {
             header {
-                justify-content: space-between;
+                top: 16px;
+                padding: 10px 20px;
+                width: calc(100% - 32px);
             }
             nav {
                 display: none;
                 position: absolute;
-                top: 100%;
+                top: calc(100% + 10px);
                 left: 0;
                 width: 100%;
-                background-color: #2a2a2a;
+                background-color: rgba(255, 105, 180, 0.2);
+                backdrop-filter: blur(10px);
                 flex-direction: column;
                 align-items: center;
                 padding: 20px 0;
-                border-radius: 0 0 20px 20px;
+                border-radius: 20px;
+                box-shadow: 0 4px 6px rgba(255, 105, 180, 0.1);
             }
             nav.show {
                 display: flex;
+            }
+            .nav-links {
+                padding: 10px 0;
             }
             .menu-icon {
                 display: block;
