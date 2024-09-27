@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@moyassin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHq6lK6mnFfyBM6aLB6bO3Z2Os6o5Q9lOi9J6cSsx7yp5PAK9VQzp1xGphhVbDRdQzrIVRlg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            line-height: 1.75;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            border-left: 8px solid #ff6b6b;
+            transition: all 0.3s ease;
+        }
+
+        header {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 5vh;
+        }
+
+        header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            border: 3px solid #ff6b6b;
+            transition: all 0.3s ease;
+        }
+
+        .header-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .header-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+
+        .header-links a:hover {
+            color: #ff6b6b;
+            background-color: #f4f7f9;
+        }
+
+        .work-with-me {
+            background-color: #ff6b6b;
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .work-with-me:hover {
+            background-color: #ff4757;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #222;
+            margin-top: 20px;
+        }
+
+        header h1 span {
+            color: #ff6b6b;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .content a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .content a:hover {
+            color: #ff4757;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .content p {
+                font-size: 1rem;
+            }
+
+            .header-top {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            header img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .header-links {
+                justify-content: center;
+            }
+
+            .header-links a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <img src="profile.jpg" alt="Profile Picture">
+                <div class="header-links">
+                    <a href="https://facebook.com/moyassin" target="_blank">Facebook</a>
+                    <a href="https://tiktok.com/@moyassin" target="_blank">TikTok</a>
+                    <a href="https://www.goodreads.com/moyassin" target="_blank">Goodreads</a>
+                    <a href="CV-link" target="_blank">CV</a>
+                    <a href="work.html" class="work-with-me">Work with me</a>
+                </div>
+            </div>
+            <h1>👋 Hi! I'm <span>@moyassin</span>, a software developer with a background in teaching.</h1>
+        </header>
+        <div class="content">
+            <!-- The content remains unchanged -->
+            <p>I'm currently building <a href="https://jrnal.tn" target="_blank">Jrnal</a>, the foundation for <a
+                    href="https://anis.web.app" target="_blank">Anis</a> (your AI friend customised for your needs)!</p>
+            <p>I started my journey at 16 by teaching English online and rapidly growing <a
+                    href="https://www.facebook.com/moyassin" target="_blank">my first Facebook page</a> to over
+                70k likes in less than three months. This initial success in digital marketing led to valuable
+                collaborations with clients across the Arab world, including the UAE, Saudi Arabia, and Morocco. Fueled
+                by a passion for technology, I shifted to coding and independently developed over 30 projects, handling
+                everything from designing landing pages and managing databases to integrating AI functionalities.</p>
+            <p>I took on a teaching role as an experiment to explore new ways of creating useful solutions. I began by
+                drawing students' portraits with AI, which went viral among educators <a
+                    href="https://www.facebook.com/moyassin" target="_blank" class="example-1">example 1</a><a
+                    href="https://www.facebook.com/moyassin" target="_blank" class="example-2">example 2</a>. This
+                experience led me to a crucial
+                realization: rather than focusing on solutions for students, I could create something that addresses
+                teachers' needs and eases their challenges. This insight inspired the development of <a
+                    href="https://jrnal.tn" target="_blank">Jrnal</a>—a tool
+                designed to simplify and enhance the teaching experience.</p>
+            <p>I'm also a <a href="https://www.youtube.com/@moyassin" target="_blank">techno-optimist</a>, believing in
+                technology's power to drive positive change. I enjoy reading and
+                am influenced by thinkers like Friedman, Hayek, and Nietzsche. You can <a
+                    href="https://www.goodreads.com/moyassin" target="_blank">explore my goodreads</a> to see my reading
+                history. Additionally, you can <a href="CV-link" target="_blank">download my CV</a>, connect with me on
+                Facebook <a href="https://facebook.com/moyassin" target="_blank">/moyassin</a>, check out my videos
+                on TikTok <a href="https://tiktok.com/@moyassin" target="_blank">@moyassin</a>, or have a look at my
+                jrnal page <a href="https://jrnal.tn/yassin" target="_blank">/yassin</a>.</p>
+        </div>
+    </div>
+</body>
+
+</html>
