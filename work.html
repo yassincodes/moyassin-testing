@@ -271,7 +271,52 @@
             font-size: 14px;
             color: #666;
         }
-
+    /* Work Section */
+    .work-section {
+            padding: 80px 0;
+        }
+        .work-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .work-section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .work-item {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .work-item:hover {
+            transform: translateY(-5px);
+        }
+        .work-image {
+            width: 100%;
+            height: 150px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .work-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .work-description {
+            font-size: 14px;
+            color: #666;
+        }
         @media (max-width: 768px) {
             header {
                 justify-content: space-between;
@@ -407,6 +452,44 @@
                             <div class="service-title">Integration of AI Functionalities</div>
                             <div class="service-description">Enhance your SaaS with cutting-edge AI capabilities, improving user experience and automating complex tasks.</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="work-section">
+            <div class="work-container">
+                <h2>My Work</h2>
+                <div class="work-grid">
+                    <div class="work-item">
+                        <div class="work-image"></div>
+                        <div class="work-title">Project One</div>
+                        <div class="work-description">Description of the first project.</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-image"></div>
+                        <div class="work-title">Project Two</div>
+                        <div class="work-description">Description of the second project.</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-image"></div>
+                        <div class="work-title">Project Three</div>
+                        <div class="work-description">Description of the third project.</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-image"></div>
+                        <div class="work-title">Project Three</div>
+                        <div class="work-description">Description of the third project.</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-image"></div>
+                        <div class="work-title">Project Three</div>
+                        <div class="work-description">Description of the third project.</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-image"></div>
+                        <div class="work-title">Project Three</div>
+                        <div class="work-description">Description of the third project.</div>
                     </div>
                 </div>
             </div>
