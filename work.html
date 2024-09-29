@@ -5,496 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generalist SaaS Landing Page</title>
-    <style>
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background-color: rgba(255, 105, 180, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 9999px;
-            padding: 12px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: calc(100% - 10vw);
-            max-width: 970px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(255, 105, 180, 0.1);
-        }
-
-        .logo {
-            width: 32px;
-            height: 32px;
-            background-color: #ff69b4;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #ff69b4;
-        }
-
-        nav {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links {
-            text-decoration: none;
-            color: #ff9ed2;
-            font-size: 16px;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-        }
-
-        .nav-links:hover {
-            color: #ffffff;
-            text-shadow: 0 0 5px #ff69b4;
-        }
-
-        .menu-icon {
-            display: none;
-            cursor: pointer;
-        }
-
-        .menu-icon svg {
-            stroke: #ff69b4;
-            width: 28px;
-            height: 28px;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                top: 16px;
-                padding: 10px 20px;
-                width: calc(100% - 32px);
-            }
-
-            nav {
-                display: none;
-                position: absolute;
-                top: calc(100% + 10px);
-                left: 0;
-                width: 100%;
-                background-color: rgba(255, 105, 180, 0.2);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                border-radius: 20px;
-                box-shadow: 0 4px 6px rgba(255, 105, 180, 0.1);
-            }
-
-            nav.show {
-                display: flex;
-            }
-
-            .nav-links {
-                padding: 10px 0;
-            }
-
-            .menu-icon {
-                display: block;
-            }
-        }
-
-        main {
-            text-align: center;
-            padding: 150px 0 100px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .cta-button {
-            background-color: #000;
-            color: #fff;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 25px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #333;
-        }
-
-        .status {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            background-color: #4CAF50;
-            border-radius: 50%;
-        }
-
-        .skills-section,
-        .certificates-section,
-        .services-section {
-            padding: 80px 0;
-            margin-top: 50px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.5s ease forwards;
-            animation-delay: 0.3s;
-        }
-
-        .skills-container,
-        .certificates-container,
-        .services-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .skills-section h2,
-        .certificates-section h2,
-        .services-section h2 {
-            font-size: 36px;
-            margin-bottom: 50px;
-            text-align: center;
-            color: #333;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-item {
-            text-align: center;
-            padding: 30px 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-            color: #4CAF50;
-        }
-
-        .skill-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .skill-description {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .certificates-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .certificate-item {
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            width: 250px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .certificate-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .certificate-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .certificate-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .certificate-issuer {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .services-subtitle {
-            font-size: 18px;
-            color: #666;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .services-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .service-item {
-            display: flex;
-            align-items: center;
-            background-color: #fff;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-icon {
-            font-size: 32px;
-            margin-right: 20px;
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 10px;
-        }
-
-        .service-content {
-            flex-grow: 1;
-        }
-
-        .service-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        .service-description {
-            font-size: 14px;
-            color: #666;
-        }
-
-        /* Work Section */
-        .work-section {
-            padding: 80px 0;
-        }
-
-        .work-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .work-section h2 {
-            font-size: 36px;
-            margin-bottom: 50px;
-            color: #333;
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .work-item {
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .work-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .work-image {
-            width: 100%;
-            height: 150px;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .work-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .work-description {
-            font-size: 14px;
-            color: #666;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                justify-content: space-between;
-                padding: 10px;
-            }
-
-            nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: #333;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                border-radius: 0 0 20px 20px;
-            }
-
-            nav.show {
-                display: flex;
-            }
-
-            .menu-icon {
-                display: block;
-            }
-        }
-
-        .pricing-section {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            gap: 20px;
-            padding: 40px 20px;
-            max-width: 970px;
-            margin: 0 auto;
-        }
-
-        .pricing-plan {
-            flex: 1;
-            border: 2px solid #000;
-            border-radius: 10px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .plan-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .plan-description {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .plan-price {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .plan-features {
-            list-style-type: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-
-        .plan-features li {
-            margin-bottom: 10px;
-        }
-
-        .plan-button {
-            background-color: #000;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .plan-button:hover {
-            background-color: #333;
-        }
-
-        @media (max-width: 768px) {
-            .pricing-section {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles/work.css">
 </head>
 
 <body>
     <header>
-        <div class="logo"></div>
-        <nav>
-            <a href="#" class="nav-links">How it works</a>
-            <a href="#" class="nav-links">Benefits</a>
+
+            <a href="#" class="nav-links">Skills</a>
+            <a href="#" class="nav-links">Certificates</a>
             <a href="#" class="nav-links">Services</a>
+            <a href="#" class="nav-links">Projects</a>
             <a href="#" class="nav-links">Pricing</a>
-            <a href="#" class="nav-links">FAQs</a>
-            <a href="#" class="nav-links">Login</a>
-        </nav>
-        <div class="menu-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
+            <a href="#" class="nav-links">Contact</a>
         </div>
     </header>
     <div class="container">
@@ -509,37 +31,82 @@
         </main>
         <section class="skills-section">
             <div class="skills-container">
-                <h2>My Expertise</h2>
+                <h2>Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-item">
-                        <div class="skill-icon">📊</div>
-                        <div class="skill-title">Product Management</div>
-                        <div class="skill-description">Guiding product vision and strategy</div>
+                        <div class="skill-icon">🟨</div>JavaScript
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon">🎨</div>
-                        <div class="skill-title">UI/UX Design</div>
-                        <div class="skill-description">Creating intuitive user experiences</div>
+                        <div class="skill-icon">🔷</div>TypeScript
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon">💻</div>
-                        <div class="skill-title">Full-stack Development</div>
-                        <div class="skill-description">Building robust web applications</div>
+                        <div class="skill-icon">⚛️</div>React
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon">📈</div>
-                        <div class="skill-title">Digital Marketing</div>
-                        <div class="skill-description">Driving growth and user acquisition</div>
+                        <div class="skill-icon">▲</div>Next.js
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon">📉</div>
-                        <div class="skill-title">Data Analysis</div>
-                        <div class="skill-description">Extracting insights from data</div>
+                        <div class="skill-icon">🟢</div>Node.js
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon">📅</div>
-                        <div class="skill-title">Project Management</div>
-                        <div class="skill-description">Delivering projects on time and budget</div>
+                        <div class="skill-icon">🚂</div>Express
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🌬️</div>Tailwind
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🖼️</div>Framer
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🎨</div>Shadcn
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🤖</div>Headless
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🔄</div>Redux
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🔺</div>Prisma
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🍃</div>MongoDB
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🐘</div>PostgreSQL
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🐬</div>MySQL
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">☁️</div>Cloudinary
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🐳</div>Docker
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🔐</div>Clerk
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🔗</div>Axios
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🌐</div>HTML
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🎨</div>CSS
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">💅</div>Sass
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🌿</div>Git
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🐙</div>GitHub
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">➕</div>More
                     </div>
                 </div>
             </div>
@@ -568,8 +135,8 @@
         </section>
         <section class="services-section">
             <div class="services-container">
-                <h2>What you'll get</h2>
-                <p class="services-subtitle">Membership benefits</p>
+                <h2>Services</h2>
+                <p class="services-subtitle">What I offer</p>
                 <div class="services-list">
                     <div class="service-item">
                         <div class="service-icon">🌐</div>
@@ -601,13 +168,16 @@
 
         <section class="work-section">
             <div class="work-container">
-                <h2>some of my work</h2>
+                <h2>Projects</h2>
+                <p class="services-subtitle">Some of my work</p>
                 <div class="work-grid">
                     <div class="work-item">
                         <div class="work-image"></div>
                         <div class="work-title">Najm.tn</div>
-                        <div class="work-description">An AI online tutor that guides elementary students throughout
-                            their lessons</div>
+                        <div class="work-description">An AI online tutor with a duolingo like design, that guides
+                            elementary students throughout
+                            their lessons, it's the AI version of the teacher najmkmar who will give his students the
+                            power to chat with him when they go home</div>
                     </div>
                     <div class="work-item">
                         <div class="work-image"></div>
@@ -677,13 +247,9 @@
             </div>
         </section>
         <main>
-            <h1>A "generalist" will save<br>you thousands</h1>
-            <p>Subscription based Co-founder for your SaaS. Pause or cancel anytime.</p>
+            <h1>let's start working on your next<br>big project</h1>
+            <p></p>
             <button class="cta-button">Send me an email</button>
-            <div class="status">
-                <div class="status-dot"></div>
-                <span>Available</span>
-            </div>
         </main>
         <script>
             document.querySelector('.menu-icon').addEventListener('click', function () {
