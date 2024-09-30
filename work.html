@@ -6,18 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generalist SaaS Landing Page</title>
     <link rel="stylesheet" href="styles/work.css">
+    <style>
+        /* Add this to ensure hover effect consistency */
+        .nav-links:hover,
+        .nav-links.active {
+            color: #ffffff !important;
+            text-shadow: 0 0 5px #ff69b4 !important;
+        }
+    </style>
 </head>
 
 <body>
     <header>
-
-            <a href="#" class="nav-links">Skills</a>
-            <a href="#" class="nav-links">Certificates</a>
-            <a href="#" class="nav-links">Services</a>
-            <a href="#" class="nav-links">Projects</a>
-            <a href="#" class="nav-links">Pricing</a>
-            <a href="#" class="nav-links">Contact</a>
-        </div>
+        
+            <a href="#skills" class="nav-links">Skills</a>
+            <a href="#certificates" class="nav-links">Certificates</a>
+            <a href="#services" class="nav-links">Services</a>
+            <a href="#projects" class="nav-links">Projects</a>
+            <a href="#pricing" class="nav-links">Pricing</a>
+            <a href="#contact" class="nav-links">Contact</a>
+   
     </header>
     <div class="container">
         <main>
@@ -29,7 +37,7 @@
                 <span>Available</span>
             </div>
         </main>
-        <section class="skills-section">
+        <section id="skills" class="skills-section">
             <div class="skills-container">
                 <h2>Skills</h2>
                 <div class="skills-grid">
@@ -111,7 +119,7 @@
                 </div>
             </div>
         </section>
-        <section class="certificates-section">
+        <section id="certificates" class="certificates-section">
             <div class="certificates-container">
                 <h2>Certificates</h2>
                 <div class="certificates-grid">
@@ -133,7 +141,7 @@
                 </div>
             </div>
         </section>
-        <section class="services-section">
+        <section id="services" class="services-section">
             <div class="services-container">
                 <h2>Services</h2>
                 <p class="services-subtitle">What I offer</p>
@@ -166,7 +174,7 @@
             </div>
         </section>
 
-        <section class="work-section">
+        <section id="projects" class="work-section">
             <div class="work-container">
                 <h2>Projects</h2>
                 <p class="services-subtitle">Some of my work</p>
@@ -224,7 +232,7 @@
                 </div>
             </div>
         </section>
-        <section class="skills-section">
+        <section id="pricing" class="skills-section">
             <h2>Pricing</h2>
             <div class="pricing-section">
                 <div class="pricing-plan">
@@ -246,30 +254,91 @@
                 </div>
             </div>
         </section>
-        <main>
-            <h1>let's start working on your next<br>big project</h1>
-            <p></p>
-            <button class="cta-button">Send me an email</button>
-        </main>
-        <script>
-            document.querySelector('.menu-icon').addEventListener('click', function () {
-                document.querySelector('nav').classList.toggle('show');
+        <section id="contact">
+            <main>
+                <h1>let's start working on your next<br>big project</h1>
+                <p></p>
+                <button class="cta-button">Send me an email</button>
+            </main>
+        </section>
+    </div>
+    <script>
+        // Get all the sections and navigation links
+        // Get all the sections and navigation links
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links');
+
+        // Function to check which section is in view
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) / 2 &&
+                rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) / 2
+            );
+        }
+
+        // Function to highlight and apply hover effect to the active navigation link
+        function highlightNavLink() {
+            let activeSection = null;
+
+            sections.forEach((section) => {
+                if (isInViewport(section)) {
+                    activeSection = section;
+                }
             });
 
-            // Animate sections on scroll
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationDelay = '0s';
-                        entry.target.style.animationPlayState = 'running';
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('section').forEach(section => {
-                observer.observe(section);
+            navLinks.forEach((link) => {
+                link.classList.remove('active');
+                link.style.color = ''; // Remove any inline color style
+                link.style.textShadow = ''; // Remove any inline text-shadow style
             });
-        </script>
+
+            if (activeSection) {
+                const activeIndex = Array.from(sections).indexOf(activeSection);
+                navLinks[activeIndex].classList.add('active');
+                navLinks[activeIndex].style.color = '#ffffff';
+                navLinks[activeIndex].style.textShadow = '0 0 5px #ff69b4';
+            }
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', highlightNavLink);
+
+        // Smooth scroll functionality
+        navLinks.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Initial call to set the active link on page load
+        highlightNavLink();
+
+        // Existing animation code
+        document.querySelector('.menu-icon').addEventListener('click', function () {
+            document.querySelector('nav').classList.toggle('show');
+        });
+
+        // Animate sections on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0s';
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 
 </html>
