@@ -47,11 +47,6 @@ header {
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.nav-links:hover {
-    color: #ffffff;
-    text-shadow: 0 0 5px #ff69b4;
-}
-
 .menu-icon {
     display: none;
     cursor: pointer;
